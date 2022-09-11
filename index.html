@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="kanban-heading">
+            <strong class="kanban-heading-text">Kanban Board</strong>
+        </div>
+        <div class="kanban-board ">
+            <div class="card" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class=" card-title">
+                    <strong>To Do</strong>
+                    <button class="btn " onclick="createTask()">+</span>
+                </div>
+                <div class="card taskcard" id="task1" draggable="true" ondragstart="drag(event)">
+                    <h5 class="card-title">Task1</h5>
+                    <div class="card-body">
+                    <div class="card-text"></div>
+                    <p class="status"><span class="test rounded-circle" id="todo"></span>todo</p>
+                </div>
+                </div>
+               
+            </div>
+            <div class="card" id="backlog" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+               <div class=" card-title">
+                    <strong>Backlog</strong>
+                    <button class="btn " onclick="createTask()">+</span>
+                </div>
+            </div>
+            <div class="card" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class=" card-title">
+                    <strong>In Progress</strong>
+                    <button class="btn " onclick="createTask()">+</span>
+                </div>
+            </div>
+            <div class="card" id="intesting" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class=" card-title">
+                    <strong>In Testing</strong>
+                    <button class="btn " onclick="createTask()">+</span>
+                </div>
+            </div>
+            <div class="card" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class=" card-title">
+                    <strong>Done</strong>
+                    <button class="btn " onclick="createTask()">+</span>
+                </div>
+            </div>
+            
+            <div class="create-new-task-block" id="create-new-task-block">
+                <strong>New Task</strong>
+                <span class="form-row">
+                    <label class="form-row-label" for="task-name">Task</label>
+                    <input class="form-row-input" type="text" name="task-name" id="task-name">
+                    
+                </span>
+                <span class="error">Error Required field</span>
+                <span class="form-row">
+                    <label class="form-row-label" for="task-name">Description</label>
+                    <textarea class="form-row-input" name="task-description" id="task-description" cols="70" rows="10"></textarea>
+                </span>
+                <span class="form-row">
+                    <label class="form-row-label" for="task-name">Status</label>
+                    <select class="form-row-input" name="task-status" id="task-status">
+                        <option value="todo">To Do</option>
+                        <option value="backlog">Backlog</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="intesting">In Testing</option>
+                        <option value="done">Done</option>
+                    </select>
+                </span>
+                <span class="form-row-buttons">
+                    <button id="edit-button" onclick="editTask()">Edit</span>
+                    <button id="save-button" onclick="saveTask()">Save</span>
+                    <button id="cancel-button" onclick="closeCard()">Cancel</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
