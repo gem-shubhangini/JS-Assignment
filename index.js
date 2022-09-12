@@ -10,8 +10,9 @@ function createTask() {
 let form = document.getElementById("form");
 var taskName = document.getElementById("task-name");
 var statusbar = document.getElementById("task-status");
-
+var msg =form.getElementsByClassName("msg");
 var description = document.getElementById("task-description");
+var date =document.getElementById("task-duedate");
 
 
 form.addEventListener("submit", (e) => {
@@ -23,7 +24,7 @@ form.addEventListener("submit", (e) => {
 });
 let formValidation = () => {
     if (taskName.value === "") {
-
+       
         console.log("failure");
     } else {
         console.log("successs");
@@ -62,6 +63,7 @@ let addData = () => {
     let Data = {
         taskName: taskName.value,
         description: description.value,
+        date:data.value,
         statusbar: statusbar.value
     };
 
@@ -84,7 +86,9 @@ let saveTask = () => {
           </span>
           </div>
             <div class="card-body">
+            <div class="card-text">${date.value}</div>
             <div class="card-text">${description.value}</div>
+           
             <p class="status"><span class="test rounded-circle" id="${statusbar.value}"></span>${statusbar.value}</p>
         </div>
         </div> `
@@ -95,8 +99,10 @@ let editTask =(e)=> {
 
     z.style.display = "flex";
   taskName.value=e.parentElement.previousElementSibling.innerHTML
-  description.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.innerHTML
+  stringdate=e.parentElement.parentElement.nextElementSibling.firstElementChild.innerHTML
+  description.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.innerHTML
   statusbar.value=e.parentElement.parentElement.nextElementSibling.lastElementChild.firstElementChild.id
+ 
   savebtn.addEventListener('click',()=>{
     e.parentElement.parentElement.parentElement.remove();
 })
