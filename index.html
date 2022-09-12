@@ -12,7 +12,7 @@
             <strong class="kanban-heading-text">Kanban Board</strong>
         </div>
         <div class="kanban-board ">
-            <div class="card" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="card main-card" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>To Do</strong>
                     <button class="btn " onclick="createTask()">+</span>
@@ -33,26 +33,26 @@
                 </div>
                
             </div>
-            <div class="card" id="backlog" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="card main-card" id="backlog" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                <div class=" card-title">
                     <strong>Backlog</strong>
                     <button class="btn " onclick="createTask()">+</span>
                 </div>
             </div>
-            <div class="card" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="card main-card" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>In Progress</strong>
                     <button class="btn " onclick="createTask()">+</span>
                 </div>
             </div>
-            <div class="card" id="intesting" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="card main-card" id="intesting" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>In Testing</strong>
                     <button class="btn " onclick="createTask()">+</span>
                 </div>
             </div>
-            <div class="card" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="card main-card" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>Done</strong>
                     <button class="btn " onclick="createTask()">+</span>
@@ -86,8 +86,8 @@
                     </select>
                 </span>
                 <span class="form-row-buttons">
-                    <button id="save-button" type="submit" >Save</span>
-                    <button id="cancel-button" onclick="closeCard()">Cancel</span>
+                    <button id="save-button" class="btn px-3"type="submit" >Save</span>
+                    <button id="cancel-button" class="btn"onclick="closeCard()">Cancel</span>
                 </span>
             </div>
         </form>
