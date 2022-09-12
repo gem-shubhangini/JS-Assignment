@@ -1,4 +1,5 @@
 
+
     
   
   .container {
@@ -79,7 +80,7 @@
     display: none;
     /* display: flex; */
     background: #ffaf00;
-    width: 64.4%;
+    width: 100%;
     flex-direction: column;
   }
   
@@ -153,3 +154,12 @@
       margin-right: 8px;
       
   }
+  .taskFlex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+.options .i{
+  margin-left: 5px;
+  margin-right: 5px;
+}
