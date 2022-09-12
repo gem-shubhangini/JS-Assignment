@@ -1,5 +1,4 @@
 
-
     
   
   .container {
@@ -86,26 +85,6 @@
     flex-direction: column;
   }
   
-  .form-row {
-    display: flex;
-    flex-direction: row;
-    margin: 0.2rem;
-  }
-  
-  .form-row-label {
-    width: 15%;
-    padding: 0.2rem;
-    padding-right: 0.5rem;
-    border: 0.1rem solid black;
-    border-right: 0;
-    border-radius: 0.2rem 0rem 0rem 0.2rem;
-  }
-  
-  .form-row-input {
-    border: 0.1rem solid black;
-    border-radius: 0rem 0.2rem 0.2rem 0rem;
-    width: 85%;
-  }
   
   textarea {
     resize: none;
