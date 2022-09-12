@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Kanban Board</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.css">
+    <script src="https://kit.fontawesome.com/fb479f2234.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -17,7 +18,13 @@
                     <button class="btn " onclick="createTask()">+</span>
                 </div>
                 <div class="card taskcard" id="task1" draggable="true" ondragstart="drag(event)">
-                    <h5 class="card-title">Task1</h5>
+                    <div class="taskFlex">
+                        <h5 class="card-title">Task1</h5>
+                        <span class="options">
+                        <i onClick="editTask(this)" class="fa-solid fa-pen-to-square"></i>
+                      <i onClick="deleteTask(this)" class="fas fa-trash-alt"></i>
+                       </span>
+                       </div>
                     <div class="card-body">
                     <div class="card-text"></div>
                     <p class="status"><span class="test rounded-circle" id="todo"></span>todo</p>
@@ -50,7 +57,7 @@
                     <button class="btn " onclick="createTask()">+</span>
                 </div>
             </div>
-            
+            <form id="form">
             <div class="create-new-task-block" id="create-new-task-block">
                 <strong>New Task</strong>
                 <span class="form-row">
@@ -58,7 +65,7 @@
                     <input class="form-row-input" type="text" name="task-name" id="task-name">
                     
                 </span>
-                <span class="error">Error Required field</span>
+                <span class="msg">Error Required field</span>
                 <span class="form-row">
                     <label class="form-row-label" for="task-name">Description</label>
                     <textarea class="form-row-input" name="task-description" id="task-description" cols="70" rows="10"></textarea>
@@ -74,11 +81,11 @@
                     </select>
                 </span>
                 <span class="form-row-buttons">
-                    <button id="edit-button" onclick="editTask()">Edit</span>
-                    <button id="save-button" onclick="saveTask()">Save</span>
+                    <button id="save-button" type="submit" >Save</span>
                     <button id="cancel-button" onclick="closeCard()">Cancel</span>
                 </span>
             </div>
+        </form>
         </div>
     </div>
 
