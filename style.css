@@ -1,4 +1,5 @@
 
+  
     
   
   .container {
@@ -19,7 +20,7 @@
   .kanban-board {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+   
     font-family: sans-serif;
   }
   
@@ -36,11 +37,11 @@
   .main-card,
   .create-new-task-block {
     padding: 0.6rem;
-    width: 30.5%;
+    width: 50.5%;
     min-width: 14rem;
     min-height: 10.5rem;
     border-radius: 0.3rem;
-    margin: 15px;
+    margin-left: 5px;
   }
   .taskcard{
     width: 100%;
