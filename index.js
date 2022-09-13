@@ -1,116 +1,4 @@
-var z = document.getElementById("create-new-task-block");
- var savebtn=document.getElementById("save-button");
- var cancelbtn=document.getElementById("cancel-button");
- let form = document.getElementById("form");
-var taskName = document.getElementById("task-name");
-var statusbar = document.getElementById("task-status");
-var msg =form.getElementsByClassName("msg");
-var description = document.getElementById("task-description");
-var date =document.getElementById("task-duedate");
-function createTask(e) {
-    statusbar.value=e.parentElement.parentElement.id
-     z.style.display = "flex";
-}
-
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log("button clicked");
-    formValidation();
-    form.reset();
-    z.style.display = "none";
-});
-let formValidation = () => {
-    if (taskName.value === "") {
-       
-        console.log("failure");
-    } else {
-        console.log("successs");
-        addData();
-    }
-};
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-
-}
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var id = ev.currentTarget.id
-    var data = ev.dataTransfer.getData("text");
-    var card = document.getElementById(`${data}`)
-  
-   //var iod =card.data-id;
- //var dataedit=JSON.stringify({ 
-//   "status":id,
-// });
-    // var xhr = new XMLHttpRequest();
-    // xhr.addEventListener("readystatechange", function() {
-    //   if(this.readyState === 4) {
-    //     console.log(this.responseText);
-    //   }
-    // }); 
-    // xhr.open("PUT", "myURL/iod");
-    // xhr.setRequestHeader("Content-Type", "application/json");   
-    // xhr.send(dataedit);
-    var body = card.querySelector('p')
-    body.innerHTML = `Status: <span class="test rounded-circle" id="${id}"></span>${id}`
-
-
-    ev.currentTarget.appendChild(document.getElementById(data));
-
-}
-
-
-cancelbtn.addEventListener('click',function closeCard() {
-     form.reset(); 
-    z.style.display = "none";
- 
-})
-
-
-let data = [];
-
-
-let addData = () => {
-    
-    let Data = {
-        
-        taskName: taskName.value,
-        description: description.value,
-        DueDate:date.value,
-        status: statusbar.value
-    };
-
-    data.push(Data);
-    // var datasend = JSON.stringify(data);
-      
-    //   var xhr = new XMLHttpRequest();
-      
-    //   xhr.addEventListener("readystatechange", function() {
-    //     if(this.readyState === 4) {
-    //       console.log(this.responseText);
-    //     }
-    //   });
-      
-    //   xhr.open("POST", "myURL");
-    //   xhr.setRequestHeader("Content-Type", "application/json");
-      
-    //   xhr.send(datasend);
-    localStorage.setItem('TaskData', JSON.stringify(data));
-    saveTask();
-}
-
-let saveTask = () => {
-//     var dataget = new FormData();
-
-// var xhr = new XMLHttpRequest();
-// xhr.withCredentials = true;
-
-// xhr.addEventListener("readystatechange", function() {
+xhr.addEventListener("readystatechange", function() {
 //   if(this.readyState === 4) {
 //     console.log(this.responseText);
 //   }
@@ -131,9 +19,9 @@ let saveTask = () => {
 //           </span>
 //           </div>
 //             <div class="card-body">
-//             <div class="card-text">Date: ${object.DueDate}</div>
-//             <div class="card-text">Description: ${object.description}</div>
-           
+//             <div class="card-text">Date:<span>${object.DueDate}</span></div>
+//             <div class="card-text">Description: <span>${object.description}</span></div>
+//             <div class="card-text">Assignee: <span>${object.Asssignee}</span></div>
 //             <p class="status">Status: <span class="test rounded-circle" id="${object.status}"></span>${object.status}</p>
 //         </div>
 //         </div> `
@@ -152,7 +40,7 @@ var todo = document.getElementById(`${statusbar.value}`);
             <div class="card-body">
             <div class="card-text">Date: <span>${date.value}</span> </div>
                     <div class="card-text">Description: <span>${description.value}</span></div>
-           
+                    <div class="card-text">Assignee: <span>${assign.value}</span></div>
             <p class="status">Status: <span class="test rounded-circle" id="${statusbar.value}"></span>${statusbar.value}</p>
         </div>
         </div> `
@@ -165,9 +53,12 @@ let editTask =(e)=> {
   taskName.value=e.parentElement.previousElementSibling.innerHTML
   date.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.lastElementChild.innerHTML
   description.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.lastElementChild.innerHTML
-  statusbar.value=e.parentElement.parentElement.nextElementSibling.lastElementChild.firstElementChild.id
+  assign.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild.innerHTML
+  statusbar.value=e.parentElement.parentElement.nextElementSibling.lastElementChild.lastElementChild.id
+  console.log(statusbar.value)
   savebtn.addEventListener('click',()=>{
     e.parentElement.parentElement.parentElement.remove();
+   
 })
 //var id =e.attr('data-id');
  //var dataedit=JSON.stringify({
@@ -175,6 +66,7 @@ let editTask =(e)=> {
 //   "description": description.value,
 //   "status": statusbar.value,
 //   "DueDate": stringdate.value,
+//   "Assignee":assign.value
 // });
     // var xhr = new XMLHttpRequest();
    
