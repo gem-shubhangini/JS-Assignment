@@ -9,7 +9,7 @@ var description = document.getElementById("task-description");
 var date =document.getElementById("task-duedate");
 function createTask(e) {
     statusbar.value=e.parentElement.parentElement.id
-    z.style.display = "flex";
+     z.style.display = "flex";
 }
 
 
@@ -57,7 +57,7 @@ function drop(ev) {
     // xhr.setRequestHeader("Content-Type", "application/json");   
     // xhr.send(dataedit);
     var body = card.querySelector('p')
-    body.innerHTML = `<span class="test rounded-circle" id="${id}"></span>${id}`
+    body.innerHTML = `Status: <span class="test rounded-circle" id="${id}"></span>${id}`
 
 
     ev.currentTarget.appendChild(document.getElementById(data));
@@ -131,10 +131,10 @@ let saveTask = () => {
 //           </span>
 //           </div>
 //             <div class="card-body">
-//             <div class="card-text">${object.DueDate}</div>
-//             <div class="card-text">${object.description}</div>
+//             <div class="card-text">Date: ${object.DueDate}</div>
+//             <div class="card-text">Description: ${object.description}</div>
            
-//             <p class="status"><span class="test rounded-circle" id="${object.status}"></span>${object.status}</p>
+//             <p class="status">Status: <span class="test rounded-circle" id="${object.status}"></span>${object.status}</p>
 //         </div>
 //         </div> `
 // });
@@ -150,10 +150,10 @@ var todo = document.getElementById(`${statusbar.value}`);
           </span>
           </div>
             <div class="card-body">
-            <div class="card-text">${date.value}</div>
-            <div class="card-text">${description.value}</div>
+            <div class="card-text">Date: <span>${date.value}</span> </div>
+                    <div class="card-text">Description: <span>${description.value}</span></div>
            
-            <p class="status"><span class="test rounded-circle" id="${statusbar.value}"></span>${statusbar.value}</p>
+            <p class="status">Status: <span class="test rounded-circle" id="${statusbar.value}"></span>${statusbar.value}</p>
         </div>
         </div> `
     }
@@ -163,8 +163,8 @@ let editTask =(e)=> {
    
     z.style.display = "flex";
   taskName.value=e.parentElement.previousElementSibling.innerHTML
-  date.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.innerHTML
-  description.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.innerHTML
+  date.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.lastElementChild.innerHTML
+  description.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.lastElementChild.innerHTML
   statusbar.value=e.parentElement.parentElement.nextElementSibling.lastElementChild.firstElementChild.id
   savebtn.addEventListener('click',()=>{
     e.parentElement.parentElement.parentElement.remove();
