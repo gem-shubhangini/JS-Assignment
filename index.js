@@ -1,18 +1,16 @@
 var z = document.getElementById("create-new-task-block");
  var savebtn=document.getElementById("save-button");
  var cancelbtn=document.getElementById("cancel-button");
-function createTask() {
- 
-    z.style.display = "flex";
-}
-
-
-let form = document.getElementById("form");
+ let form = document.getElementById("form");
 var taskName = document.getElementById("task-name");
 var statusbar = document.getElementById("task-status");
 var msg =form.getElementsByClassName("msg");
 var description = document.getElementById("task-description");
 var date =document.getElementById("task-duedate");
+function createTask(e) {
+    statusbar.value=e.parentElement.parentElement.id
+    z.style.display = "flex";
+}
 
 
 form.addEventListener("submit", (e) => {
@@ -44,6 +42,20 @@ function drop(ev) {
     var id = ev.currentTarget.id
     var data = ev.dataTransfer.getData("text");
     var card = document.getElementById(`${data}`)
+  
+   //var iod =card.data-id;
+ //var dataedit=JSON.stringify({ 
+//   "status":id,
+// });
+    // var xhr = new XMLHttpRequest();
+    // xhr.addEventListener("readystatechange", function() {
+    //   if(this.readyState === 4) {
+    //     console.log(this.responseText);
+    //   }
+    // }); 
+    // xhr.open("PUT", "myURL/iod");
+    // xhr.setRequestHeader("Content-Type", "application/json");   
+    // xhr.send(dataedit);
     var body = card.querySelector('p')
     body.innerHTML = `<span class="test rounded-circle" id="${id}"></span>${id}`
 
@@ -110,11 +122,11 @@ let saveTask = () => {
 // dataget.forEach((object,index) => {
 //     var todo = document.getElementById(`${object.status}`);
 //         todo.innerHTML += `
-//         <div class="card taskcard" id="${object.taskName.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
+//         <div class="card taskcard" data-id="${object["_id"]["$oid"]}" id="${object.taskName.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
 //            <div class="taskFlex">
 //            <h5 class="card-title">${object.taskName}</h5>
 //            <span class="options">
-//              <i onClick="editTask(this)" data-id="${object["_id"]["$oid"]}" class="fa-solid fa-pen-to-square"></i>
+//            <i onClick="editTask(this)" data-id="${object["_id"]["$oid"]}" class="fa-solid fa-pen-to-square"></i>
 //          <i onClick="deleteTask(this)" data-id="${object["_id"]["$oid"]}" class="fas fa-trash-alt"></i>
 //           </span>
 //           </div>
@@ -129,7 +141,7 @@ let saveTask = () => {
 var todo = document.getElementById(`${statusbar.value}`);
     if (data && data.length !== 0) {
         todo.innerHTML += `
-        <div class="card taskcard" id="${taskName.value.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
+        <div class="card taskcard" id="${taskName.value.toLowerCase().split(" ").join("")}" data-id="1" draggable="true" ondragstart="drag(event)">
            <div class="taskFlex">
            <h5 class="card-title">${taskName.value}</h5>
            <span class="options">
