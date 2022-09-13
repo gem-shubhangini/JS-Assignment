@@ -58,23 +58,75 @@ cancelbtn.addEventListener('click',function closeCard() {
     z.style.display = "none";
  
 })
+
+
 let data = [];
+
+
 let addData = () => {
+    
     let Data = {
+        
         taskName: taskName.value,
         description: description.value,
-        date:data.value,
-        statusbar: statusbar.value
+        DueDate:date.value,
+        status: statusbar.value
     };
 
     data.push(Data);
-
+    // var datasend = JSON.stringify(data);
+      
+    //   var xhr = new XMLHttpRequest();
+      
+    //   xhr.addEventListener("readystatechange", function() {
+    //     if(this.readyState === 4) {
+    //       console.log(this.responseText);
+    //     }
+    //   });
+      
+    //   xhr.open("POST", "myURL");
+    //   xhr.setRequestHeader("Content-Type", "application/json");
+      
+    //   xhr.send(datasend);
     localStorage.setItem('TaskData', JSON.stringify(data));
     saveTask();
 }
 
 let saveTask = () => {
-    var todo = document.getElementById(`${statusbar.value}`);
+//     var dataget = new FormData();
+
+// var xhr = new XMLHttpRequest();
+// xhr.withCredentials = true;
+
+// xhr.addEventListener("readystatechange", function() {
+//   if(this.readyState === 4) {
+//     console.log(this.responseText);
+//   }
+// });
+
+// xhr.open("GET", "myURl");
+
+// xhr.send(dataget);
+// dataget.forEach((object,index) => {
+//     var todo = document.getElementById(`${object.status}`);
+//         todo.innerHTML += `
+//         <div class="card taskcard" id="${object.taskName.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
+//            <div class="taskFlex">
+//            <h5 class="card-title">${object.taskName}</h5>
+//            <span class="options">
+//            <i onClick="editTask(this)" data-id="${index}" class="fa-solid fa-pen-to-square"></i>
+//          <i onClick="deleteTask(this)" class="fas fa-trash-alt"></i>
+//           </span>
+//           </div>
+//             <div class="card-body">
+//             <div class="card-text">${object.DueDate}</div>
+//             <div class="card-text">${object.description}</div>
+           
+//             <p class="status"><span class="test rounded-circle" id="${object.status}"></span>${object.status}</p>
+//         </div>
+//         </div> `
+// });
+var todo = document.getElementById(`${statusbar.value}`);
     if (data && data.length !== 0) {
         todo.innerHTML += `
         <div class="card taskcard" id="${taskName.value.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
@@ -96,18 +148,50 @@ let saveTask = () => {
 }
 
 let editTask =(e)=> {
-
+   
     z.style.display = "flex";
   taskName.value=e.parentElement.previousElementSibling.innerHTML
-  stringdate=e.parentElement.parentElement.nextElementSibling.firstElementChild.innerHTML
+  date.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.innerHTML
   description.value=e.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.innerHTML
   statusbar.value=e.parentElement.parentElement.nextElementSibling.lastElementChild.firstElementChild.id
- 
   savebtn.addEventListener('click',()=>{
     e.parentElement.parentElement.parentElement.remove();
 })
+//var id =e.attr('data-id');
+ //var dataedit=JSON.stringify({
+//   "taskName":taskName.value,
+//   "description": description.value,
+//   "status": statusbar.value,
+//   "DueDate": stringdate.value,
+// });
+    // var xhr = new XMLHttpRequest();
+   
+    
+    // xhr.addEventListener("readystatechange", function() {
+    //   if(this.readyState === 4) {
+    //     console.log(this.responseText);
+    //   }
+    // });
+    
+    // xhr.open("PUT", "myURL/id");
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    
+    // xhr.send(dataedit);
 }
 let deleteTask=(e)=>{
+    //var id =e.attr('data-id');
+  // var xhr = new XMLHttpRequest();
+   
     
+    // xhr.addEventListener("readystatechange", function() {
+    //   if(this.readyState === 4) {
+    //     console.log(this.responseText);
+    //   }
+    // });
+    
+    // xhr.open("DELETE", "myURL/id");
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    
+    // xhr.send();
   e.parentElement.parentElement.parentElement.remove();
 }
