@@ -27,7 +27,9 @@
                        </div>
                     <div class="card-body">
                         <div class="card-text">Date: <span>2022-09-12</span> </div>
+                        
                     <div class="card-text">Description: <span>Todo list</span></div>
+                    <div class="card-text">Assignee: <span>A</span></div>
                     <p class="status">Status:<span class="test rounded-circle" id="todo"></span>todo</p>
                 </div>
                 </div>
@@ -76,7 +78,7 @@
                     <textarea class="form-control" aria-label="With textarea" name="task-description" id="task-description" cols="70" rows="10"></textarea>
                 </span>
                 <span class="input-group mb-3">
-                    <label class="input-group-text" for="task-name">Status</label>
+                    <label class="input-group-text" for="task-status">Status</label>
                     <select class="form-select" name="task-status" id="task-status">
                         <option value="todo">To Do</option>
                         <option value="backlog">Backlog</option>
@@ -85,8 +87,18 @@
                         <option value="done">Done</option>
                     </select>
                 </span>
+                <span class="input-group mb-3">
+                    <label class="input-group-text" for="task-assign">Assignee</label>
+                    <select class="form-select" name="task-assign" id="task-assign">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                    </select>
+                </span>
                 <span class="form-row-buttons">
-                    <button id="save-button" class="btn px-3"type="submit" >Save</span>
+                    <button id="save-button" class="btn px-3" type="submit" >Save</span>
                     <button id="cancel-button" class="btn">Cancel</span>
                 </span>
             </div>
