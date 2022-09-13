@@ -15,7 +15,7 @@
             <div class="card main-card" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>To Do</strong>
-                    <button class="btn " onclick="createTask()">+</span>
+                    <button class="btn " onclick="createTask(this)">+</span>
                 </div>
                 <div class="card taskcard" id="task1" draggable="true" ondragstart="drag(event)">
                     <div class="taskFlex">
@@ -37,25 +37,25 @@
 
                <div class=" card-title">
                     <strong>Backlog</strong>
-                    <button class="btn " onclick="createTask()">+</span>
+                    <button class="btn " onclick="createTask(this)">+</span>
                 </div>
             </div>
             <div class="card main-card" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>In Progress</strong>
-                    <button class="btn " onclick="createTask()">+</span>
+                    <button class="btn " onclick="createTask(this)">+</span>
                 </div>
             </div>
             <div class="card main-card" id="intesting" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>In Testing</strong>
-                    <button class="btn " onclick="createTask()">+</span>
+                    <button class="btn " onclick="createTask(this)">+</span>
                 </div>
             </div>
             <div class="card main-card" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class=" card-title">
                     <strong>Done</strong>
-                    <button class="btn " onclick="createTask()">+</span>
+                    <button class="btn " onclick="createTask(this)">+</span>
                 </div>
             </div>
             <form id="form">
@@ -87,7 +87,7 @@
                 </span>
                 <span class="form-row-buttons">
                     <button id="save-button" class="btn px-3"type="submit" >Save</span>
-                    <button id="cancel-button" class="btn"onclick="closeCard()">Cancel</span>
+                    <button id="cancel-button" class="btn">Cancel</span>
                 </span>
             </div>
         </form>
