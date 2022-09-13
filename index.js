@@ -114,8 +114,8 @@ let saveTask = () => {
 //            <div class="taskFlex">
 //            <h5 class="card-title">${object.taskName}</h5>
 //            <span class="options">
-//            <i onClick="editTask(this)" data-id="${index}" class="fa-solid fa-pen-to-square"></i>
-//          <i onClick="deleteTask(this)" class="fas fa-trash-alt"></i>
+//              <i onClick="editTask(this)" data-id="${object["_id"]["$oid"]}" class="fa-solid fa-pen-to-square"></i>
+//          <i onClick="deleteTask(this)" data-id="${object["_id"]["$oid"]}" class="fas fa-trash-alt"></i>
 //           </span>
 //           </div>
 //             <div class="card-body">
