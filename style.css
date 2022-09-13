@@ -48,24 +48,24 @@
     padding: 10px;
   }
   #todo {
-    background-color: #fec6d1;
+    background-color: #dfedf0;
   }
   
   #backlog {
-    background-color: #cab2d6;
+    background-color: #dfedf0;
   }
   #intesting {
-    background-color: rgb(0, 200, 255);
+    background-color: #dfedf0;
   }
   
   #inprogress {
-    background-color: #ffe600;
-    /* display: none; */
+    background-color: #dfedf0;
+   
   }
   
   #done {
-    background-color: #619c61;
-    /* display: none; */
+    background-color: #dfedf0;
+
   }
   
   .task {
